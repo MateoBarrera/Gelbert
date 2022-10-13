@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+{% import 'forms.html' as macros %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+{{ super() }}
+Home
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div>
+  <div class="setting-dashboard-container">
+    <div class="setting-dashboard-setting-dashboard">
+      <img src="{{url_for('static', filename='/images/rectangle36112-v7ge-900h.png')}}" alt="Rectangle36112"
+        class="setting-dashboard-rectangle36" />
+      <img src="{{url_for('static', filename='/images/rectangle38113-p1wn-1200w.png')}}" alt="Rectangle38113"
+        class="setting-dashboard-rectangle38" />
+      <div class="setting-dashboard-navitems">
+        <div class="setting-dashboard-item">
+          <div class="setting-dashboard-vuesaxlineargroup">
+            <div class="setting-dashboard-group">
+              <img src="{{url_for('static', filename='/images/vector119-kt4.svg')}}" alt="Vector119"
+                class="setting-dashboard-vector" />
+              <img src="{{url_for('static', filename='/images/vector120-dsp3.svg')}}" alt="Vector120"
+                class="setting-dashboard-vector1" />
+            </div>
+          </div>
+          <span class="setting-dashboard-text">
+            <span>Home</span>
+          </span>
+        </div>
+        <div class="setting-dashboard-item1">
+          <div class="setting-dashboard-setting2">
+            <img src="{{url_for('static', filename='/images/vector148-c47m.svg')}}" alt="Vector148"
+              class="setting-dashboard-vector2" />
+            <img src="{{url_for('static', filename='/images/vector149-i91c.svg')}}" alt="Vector149"
+              class="setting-dashboard-vector3" />
+          </div>
+          <span class="setting-dashboard-text02">
+            <span>Settings</span>
+          </span>
+        </div>
+      </div>
+      <div class="setting-dashboard-logout">
+        <img src="{{url_for('static', filename='/images/vector153-gm5m.svg')}}" alt="Vector153"
+          class="setting-dashboard-vector4" />
+        <img src="{{url_for('static', filename='/images/vector154-632i.svg')}}" alt="Vector154"
+          class="setting-dashboard-vector5" />
+        <img src="{{url_for('static', filename='/images/vector155-ws9m.svg')}}" alt="Vector155"
+          class="setting-dashboard-vector6" />
+      </div>
+      <span class="setting-dashboard-text04">
+        <span>Log out</span>
+      </span>
+      <img src="{{url_for('static', filename='/images/line10158-am98.svg')}}" alt="Line10158"
+        class="setting-dashboard-line10" />
+      <img src="{{url_for('static', filename='/images/line11159-rmbs.svg')}}" alt="Line11159"
+        class="setting-dashboard-line11" />
+      <div class="setting-dashboard-titles">
+        <div class="setting-dashboard-title2">
+          <div class="setting-dashboard-frame25">
+            <div class="setting-dashboard-frame26">
+              <span class="setting-dashboard-text06">
+                <span>Home</span>
+              </span>
+            </div>
+            <img src="{{url_for('static', filename='/images/line11170-pzkg.svg')}}" alt="Line11170"
+              class="setting-dashboard-line111" />
+          </div>
+        </div>
+        <div class="setting-dashboard-title1">
+          <div class="setting-dashboard-frame251">
+            <div class="setting-dashboard-frame261">
+              <span class="setting-dashboard-text08">
+                <span>General Setting</span>
+              </span>
+            </div>
+            <img src="{{url_for('static', filename='/images/line11165-uv5d.svg')}}" alt="Line11165"
+              class="setting-dashboard-line112" />
+          </div>
+        </div>
+        <div class="setting-dashboard-title3">
+          <div class="setting-dashboard-frame252">
+            <div class="setting-dashboard-frame262">
+              <span class="setting-dashboard-text10">
+                <span>Global navigation</span>
+              </span>
+            </div>
+            <img src="{{url_for('static', filename='/images/line11175-oid9.svg')}}" alt="Line11175"
+              class="setting-dashboard-line113" />
+          </div>
+        </div>
+        <div class="setting-dashboard-title4">
+          <div class="setting-dashboard-frame253">
+            <div class="setting-dashboard-frame263">
+              <span class="setting-dashboard-text12">
+                <span>Advanced</span>
+              </span>
+            </div>
+            <img src="{{url_for('static', filename='/images/line11180-r7r7.svg')}}" alt="Line11180"
+              class="setting-dashboard-line114" />
+          </div>
+        </div>
+      </div>
+      <div class="setting-dashboard-inputfileds">
+        <div class="setting-dashboard-group27">
+          <img src="{{url_for('static', filename='/images/rectangle411101-46xb-200h.png')}}" alt="Rectangle411101"
+            class="setting-dashboard-rectangle41" />
+          <span class="setting-dashboard-text14">
+            <span>1.68</span>
+          </span>
+          <span class="setting-dashboard-text16">
+            <span>Meters</span>
+          </span>
+          <span class="setting-dashboard-text18">
+            <span>User Height</span>
+          </span>
+          <span class="setting-dashboard-text20">
+            <span>Basic Parameters</span>
+          </span>
+        </div>
+        <div class="setting-dashboard-group29">
+          <img src="{{url_for('static', filename='/images/rectangle411031-ottj-200h.png')}}" alt="Rectangle411031"
+            class="setting-dashboard-rectangle411" />
+          <span class="setting-dashboard-text22">
+            <span>3.0</span>
+          </span>
+          <span class="setting-dashboard-text24">
+            <span>Meters</span>
+          </span>
+          <span class="setting-dashboard-text26">
+            <span>Maximum Distance</span>
+          </span>
+          <span class="setting-dashboard-text28">
+            <span>Distance Parameters</span>
+          </span>
+        </div>
+        <div class="setting-dashboard-group30">
+          <span class="setting-dashboard-text30">
+            <span>Frequency Parameters</span>
+          </span>
+          <div class="setting-dashboard-freqobstacles">
+            <img src="{{url_for('static', filename='/images/rectangle411051-mhjt-200h.png')}}" alt="Rectangle411051"
+              class="setting-dashboard-rectangle412" />
+            <span class="setting-dashboard-text32">2</span>
+            <span class="setting-dashboard-text33">
+              <span>Seconds</span>
+            </span>
+            <span class="setting-dashboard-text35">
+              <span>Frequency obstacles</span>
+            </span>
+          </div>
+          <div class="setting-dashboard-freqlocalpath">
+            <img src="{{url_for('static', filename='/images/rectangle411051-8llr-200h.png')}}" alt="Rectangle411051"
+              class="setting-dashboard-rectangle413" />
+            <span class="setting-dashboard-text37">2</span>
+            <span class="setting-dashboard-text38">
+              <span>Seconds</span>
+            </span>
+            <span class="setting-dashboard-text40">
+              <span>Frequency local Path</span>
+            </span>
+          </div>
+        </div>
+        <div class="setting-dashboard-group31">
+          <img src="{{url_for('static', filename='/images/rectangle411051-m8d-200h.png')}}" alt="Rectangle411051"
+            class="setting-dashboard-rectangle414" />
+          <span class="setting-dashboard-text42">
+            <span>3.0</span>
+          </span>
+          <span class="setting-dashboard-text44">
+            <span>Obstacles</span>
+          </span>
+          <span class="setting-dashboard-text46">
+            <span>Maximum Obstacles</span>
+          </span>
+          <span class="setting-dashboard-text48">
+            <span>Obstacles Parameters</span>
+          </span>
+        </div>
+      </div>
+      <div class="setting-dashboard-selection">
+        <span class="setting-dashboard-text50">
+          <span>Navigation Parameters</span>
+        </span>
+        <div class="setting-dashboard-radio">
+          <div class="setting-dashboard-radio1">
+            <img src="{{url_for('static', filename='/images/ellipse1i105-klxm-200h.png')}}" alt="Ellipse1I105"
+              class="setting-dashboard-ellipse1" />
+            <img src="{{url_for('static', filename='/images/vectori105-m6kh.svg')}}" alt="VectorI105"
+              class="setting-dashboard-vector7" />
+          </div>
+          <span class="setting-dashboard-text52">
+            <span>Obstacle Avoidance</span>
+          </span>
+        </div>
+        <div class="setting-dashboard-radio2">
+          <img src="{{url_for('static', filename='/images/ellipse1i105-qviq-200h.png')}}" alt="Ellipse1I105"
+            class="setting-dashboard-ellipse11" />
+          <span class="setting-dashboard-text54">
+            <span>Local Path Planning</span>
+          </span>
+        </div>
+      </div>
+      <div class="setting-dashboard-group291">
+        <img src="{{url_for('static', filename='/images/rectangle411117-ifgf-200h.png')}}" alt="Rectangle411117"
+          class="setting-dashboard-rectangle415" />
+        <img src="{{url_for('static', filename='/images/image21051-wal8-200h.png')}}" alt="image21051"
+          class="setting-dashboard-image2" />
+        <span class="setting-dashboard-text56">
+          <span>Angle parameters</span>
+        </span>
+      </div>
+      <div class="setting-dashboard-button">
+        <img src="{{url_for('static', filename='/images/rectangle461031-e539-200h.png')}}" alt="Rectangle461031"
+          class="setting-dashboard-rectangle46" />
+        <span class="setting-dashboard-text58">
+          <span>
+            <span>Update</span>
+            <br />
+            <span></span>
+          </span>
+        </span>
+      </div>
+      <div class="setting-dashboard-button1">
+        <span class="setting-dashboard-text63">
+          <span>Reset</span>
+        </span>
+      </div>
+      <img src="{{url_for('static', filename='/images/ellipse1i105-klxm-200h.png')}}" alt="">
+      <img src="{{url_for('static', filename='/images/line121168-ggv3.svg')}}" alt="Line121168"
+        class="setting-dashboard-line12" />
+    </div>
+  </div>
+</div>
+<div>
+  {% if form_to_render %}
+  {{macros.render_form(form_to_render)}}
+  {% endif %}
+</div>
+{% endblock %}
