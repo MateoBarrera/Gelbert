@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar bg-white p-0 m-0">
 <div class="d-flex flex-column flex-shrink-0 px-4 bg-white">
   <ul class="nav nav-pills flex-column mb-auto setting-dashboard-navitems pt-5">
-    <li class="setting-dashboard-item active">
+    <li id="I-home" class="setting-dashboard-item">
       <a href="{{url_for('home')}}" class="nav-link setting-dashboard-vuesaxlineargroup" aria-current="page">
         <svg class="icon icon-xs" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="grey"
           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
@@ -13,7 +13,7 @@
         </span>
       </a>
     </li>
-    <li class="setting-dashboard-item">
+    <li id="I-settings.setting" class="setting-dashboard-item">
       <a href="{{url_for('settings.setting')}}" class="nav-link setting-dashboard-vuesaxlineargroup" aria-current="page">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="grey"
           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings">
@@ -27,7 +27,7 @@
         </span>
       </a>
     </li>
-    <li class="setting-dashboard-item">
+    <li id="I-advanced.advance" class="setting-dashboard-item">
       <a href="{{url_for('advanced.advance')}}" class="nav-link setting-dashboard-vuesaxlineargroup" aria-current="page">
         <svg class="icon icon-xs" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           stroke="grey" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tool">

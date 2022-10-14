@@ -1,40 +1,43 @@
 {% import 'bootstrap/wtf.html' as wtf %}
-{% macro render_form(form_to_render) %}
+{% macro render_form(module,form_to_render) %}
 
 <!--   {{wtf.quick_form(form_to_render, action=url_for('home'))}} -->
-<form action="{{url_for('home')}}" class="form px-5 row d-flex">
+<form action="{{url_for(module)}}" method="post" class="form px-5 row d-flex">
   <div class="d-block col-8">
   {% for item in form_to_render %}
-  <div class="mb-3">
     <div class="form-group">
       <div class="row align-items-center">
         {% if item.type == 'BooleanField' %}
         {% elif item.type == 'SubmitField' %}
-        <div class="col-6 mb-4">
+        <div class="col-6 my-4">
           <input class="btn me-2" id="reset" name="reset" type="reset" value="Reset">
         </div>
-        <div class="col-6 mb-4">
+        <div class="col-6 my-4">
           {{item(class='btn')|safe}}
         </div>
         {% elif item.id == 'csrf_token' %}
+        <div>{{item}}</div>
         {% else %}
         <div class="col-12 p-2">{{item.label(class='form-label')}}</div>
-        <div class="col-6 wrapper-input">{{item(class='input--style-2 me-2')|safe}}</div>
-        <div class="col-5"><span class="form-text">{{ item.description|safe }}</span></div>
+        <div class="col-3"></div>
+        <div class="col-4 wrapper-input">{{item(class='input--style-2 me-2')|safe}}</div>
+        <div class="col-4"><span class="form-text">{{ item.description|safe }}</span></div>
         {% endif %}
       </div>
+      {% if item.errors %}
+      <span class="error help-inline">{{ item.errors|join(', ') }}</span>
+      {% endif %}
     </div>
-  </div>
   {% endfor %}
   </div>
-  <div class="d-block col-4">
+  <div class="d-block col-4 my-5">
   {% for item in form_to_render %}
   <div class="mb-3">
     <div class="form-group">
       <div class="mb-4 row">
         {% if item.type == 'BooleanField' %}
         <div class="col-12 ps-5 align-items-center">
-          {{item(class='form-check-input mx-2')|safe}}
+          {{item(class='form-check-input mx-2', value='true')|safe}}
           {{item.label(class='form-check-label')}}
         </div>
         {% endif %}

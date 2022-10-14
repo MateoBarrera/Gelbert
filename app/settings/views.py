@@ -5,6 +5,7 @@ from . import settings
 @settings.route('/', methods=['GET', 'POST'])
 def setting():
     context = {
+        'module': 'settings.setting',
         'message': 'Settings route',
     }
     return render_template('settings.html', **context)
