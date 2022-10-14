@@ -1,7 +1,6 @@
-import sys
 import ruamel.yaml
 import pathlib
-
+from ruamel.yaml.scalarfloat import ScalarFloat
 class WriteYaml:
   
   def __init__(self) -> None:
@@ -28,7 +27,9 @@ class WriteYaml:
       for key in dict_file:
         if type(data_file[key]) == type(True):
           data_file[key] = bool(dict_file[key])
-        elif type(data_file[key]) == type(12.5):
+        elif type(data_file[key]) == type(12):
+          data_file[key] = int(dict_file[key])
+        elif type(data_file[key]) == ScalarFloat:
           data_file[key] = float(dict_file[key])
         else:
           data_file[key] = dict_file[key]
