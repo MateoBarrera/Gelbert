@@ -2,7 +2,7 @@ from flask import render_template, redirect, flash, url_for, session, current_ap
 from . import advanced
 
 @advanced.route('/', methods=['GET', 'POST'])
-def recovery():
+def advance():
     context = {
         'message': 'Advanced route',
     }

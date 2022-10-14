@@ -26,6 +26,7 @@ def home():
     """
     context = {
         'anonymous': True,
+        'form_name': 'Basic parameters',
         'form_to_render':CommonForm(),
         'user_ip': "UserIp",
     }

@@ -16,13 +16,12 @@
 </head>
 <body>
   {% include 'top_navbar.html' %}
-<!--   <div class="content">
-  {% include 'sidebar.html' %}
-  </div> -->
 
-<main class="content">
+<main>
+  {% include 'sidebar.html' %}
   {% block content%}
   {% endblock %}
+
 </main>
 
 

@@ -3,7 +3,7 @@ from . import settings
 
 
 @settings.route('/', methods=['GET', 'POST'])
-def recovery():
+def setting():
     context = {
         'message': 'Settings route',
     }
