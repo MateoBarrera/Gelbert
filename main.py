@@ -37,11 +37,6 @@ def home():
         'system_status': system_status,
     }
 
-    if request.method == 'POST':
-        print("#####METHOD#####")
-        print(request.form.to_dict())
-
-
     return render_template('home.html', **context)
 
 
