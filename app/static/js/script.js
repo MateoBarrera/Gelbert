@@ -53,3 +53,9 @@ function sendDataToBackendAjax(event, status) {
 
 	event.preventDefault() // don't send in normal way and don't reload page
 };
+
+function setFormActive(name_form){
+	console.log(name_form)
+
+	document.cookie = "form_active="+name_form+"; Secure; SameSite=Strict"
+}

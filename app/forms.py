@@ -29,13 +29,36 @@ class PlannerForm(FlaskForm):
         FlaskForm (WTF form): Parent class of wtf form for render content
     """
     KP = DecimalField(
-        'KP', validators=[InputRequired()], render_kw={"placeholder": "5.0"}, description="attractive potential gain")
+        'KP', validators=[Optional()], render_kw={"placeholder": "5.0"}, description="attractive potential gain")
     ETA = DecimalField(
-        'ETA',  validators=[InputRequired()], render_kw={"placeholder": "100.0"}, description="repulsive potencial gain")
+        'ETA',  validators=[Optional()], render_kw={"placeholder": "100.0"}, description="repulsive potencial gain")
     AREA_WIDTH = DecimalField(
-        'Area width',  validators=[InputRequired()], render_kw={"placeholder": "2"}, description="potential area [m]")
+        'Area width',  validators=[Optional()], render_kw={"placeholder": "2"}, description="potential area [m]")
     OSCILLATIONS_DETECTION_LENGTH = DecimalField(
-        'Oscillations detection length', validators=[InputRequired()], render_kw={"placeholder": "3"}, description="# of prev positions to check oscillations")   
+        'Oscillations detection length', validators=[Optional()], render_kw={"placeholder": "3"}, description="# of prev positions to check oscillations")   
     Maximun_distance = DecimalField(
-        'Maximum distance', validators=[InputRequired()], render_kw={"placeholder": "2.5"}, description="Distance [m] to search free space and calculate paths")
+        'Maximum distance', validators=[Optional()], render_kw={"placeholder": "2.5"}, description="Distance [m] to search free space and calculate paths")
+    submit = SubmitField('Update')  # Submit Button
+
+
+class YoloForm(FlaskForm):
+    """Form Yolo V5 params
+
+    Args:
+        FlaskForm (WTF form): Parent class of wtf form for render content
+    """
+    weights = StringField(
+        'Weights', validators=[Optional()], render_kw={"placeholder": "Yolov5_S_Freeze_subir4_pto_simpl_half.engine"})
+    data = StringField(
+        'data',  validators=[Optional()], render_kw={"placeholder": "data.yaml"})
+    confidence_threshold = DecimalField(
+        'Confidence threshold',  validators=[Optional()], render_kw={"placeholder": "0.25"})
+    iou_threshold = DecimalField(
+        'Iou threshold', validators=[Optional()], render_kw={"placeholder": "0.45"})
+    maximum_detections = DecimalField(
+        'Maximum detections', validators=[Optional()], render_kw={"placeholder": "10"})
+    inference_size_ = DecimalField(
+        'Inference size', validators=[Optional()], render_kw={"placeholder": "416"})
+    input_image_topic = StringField(
+        'Input image topic', validators=[Optional()], render_kw={"placeholder": "/zedm/zed_node/left/image_rect_color"})
     submit = SubmitField('Update')  # Submit Button

@@ -281,6 +281,28 @@
 }
 
 label{
-  font-size: 24;
+  font-size: 18;
   display: inline;
+}
+.nav-tabs {
+  border-bottom: 2px solid rgba(113, 50, 215, 1);
+}
+
+.nav-tabs .nav-link {
+  background-color: rgba(113, 50, 215, 1);
+  color: white ;
+}
+
+.nav-tabs .nav-link.active {
+  margin-bottom: -2px;
+  color: rgba(113, 50, 215, 1);
+  border-top: 2px solid rgba(113, 50, 215, 1);
+  border-left: 2px solid rgba(113, 50, 215, 1);
+  border-right: 2px solid rgba(113, 50, 215, 1);
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+.nav-tabs button.nav-link{
+  margin-top: 1rem;
+  border-radius: 0.5rem 0.5rem 1px 1px;
 }

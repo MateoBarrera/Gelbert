@@ -2,7 +2,7 @@
 {% macro render_form(module,form_to_render) %}
 
 <!--   {{wtf.quick_form(form_to_render, action=url_for('home'))}} -->
-<form action="{{url_for(module)}}" method="post" class="form px-5 row d-flex">
+<form action="{{url_for(module)}}" method="post" class="form px-5 row d-flex" id="yolo">
   <div class="d-block col-8">
   {% for item in form_to_render %}
     <div class="form-group">
