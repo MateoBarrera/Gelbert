@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, flash, url_for, session, current_app as app
 from . import advanced
-from ..forms import PlannerForm, YoloForm
+from ..forms import PlannerForm, YoloForm, PreprocessForm
 from ..yaml import WriteYaml
 
 @advanced.route('/', methods=['GET', 'POST'])
@@ -12,10 +12,11 @@ def advance():
     """
     planner_form = PlannerForm()
     yolo_form = YoloForm()
+    preprocess_form = PreprocessForm()
     context = {
         'module': 'advanced.advance',
-        'forms_name': [['planner_form', 'Local Planner'], ['yolo_form', 'YOLO V5']],
-        'forms_to_render': [['planner_form', planner_form], ['yolo_form', yolo_form]],
+        'forms_name': [['planner_form', 'Local Planner'], ['yolo_form', 'YOLO V5'], ['preprocess_form', 'Preprocess']],
+        'forms_to_render': [['planner_form', planner_form], ['yolo_form', yolo_form, ['general']], ['preprocess_form', ['general', preprocess_form]]],
     }
 
     if request.method == 'POST':

@@ -22,13 +22,17 @@ Advanced
     <div class="tab-content" id="nav-tabContent">
       {% for form_to_render in forms_to_render %}
       <div class="tab-pane fade show" id="nav-{{form_to_render[0]}}" role="tabpanel" aria-labelledby="nav-{{form_to_render[0]}}-tab">
+        {% if form_to_render[1] is mapping %}
+        <p> {{form_to_render[1] | length }}}</p>
+
+        {% else %}
+        <p>Es mebnor a uno</p>
         <div class="d-flex row pt-3">
           <div class="col-12">
-            {% if form_to_render[1] %}
-            {{macros.render_form(module,form_to_render[1])}}
-            {% endif %}
+
           </div>
         </div>
+        {% endif %}
       </div>
       {% endfor %}
     </div>
