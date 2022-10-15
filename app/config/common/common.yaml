@@ -3,7 +3,7 @@
 
 
 #general
-user_height: 1.8
+user_height: 1.7
 use_detection: true                         # if True, the detection mode is activated                 
 use_planning: true                         # if True, the local planner mode is activated
 
