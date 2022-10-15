@@ -62,8 +62,8 @@ class YoloForm(FlaskForm):
         'Input image topic', validators=[Optional()], render_kw={"value": "/zedm/zed_node/left/image_rect_color"})
     submit = SubmitField('Update')  # Submit Button
 
-class PreprocessForm(FlaskForm):
-    """Form Preprocess params
+class PreprocessForm_general(FlaskForm):
+    """Form Preprocess general params
 
     Args:
         FlaskForm (WTF form): Parent class of wtf form for render content
@@ -80,4 +80,18 @@ class PreprocessForm(FlaskForm):
         'right_image_topic', validators=[Optional()], render_kw={"value": "/zedm/zed_node/right/image_rect_color"},  description="ROS topic string")
     right_camera_info_topic = StringField(
         'right_camera_info_topic', validators=[Optional()], render_kw={"value": "/zedm/zed_node/right/camera_info"},  description="ROS topic string")
-    submit = SubmitField('Update')  # Submit Button
+    general = SubmitField('Update')  # Submit Button
+
+
+class PreprocessForm_imu(FlaskForm):
+    """Form Preprocess imu filter params
+
+    Args:
+        FlaskForm (WTF form): Parent class of wtf form for render content
+    """
+    max_angle = DecimalField(
+        'Maximum angle', validators=[Optional()], render_kw={"value": 45}, description="The maximum angle difference / head inclination before the filter of images")
+    num_samples = DecimalField(
+        'Number of samples',  validators=[Optional()], render_kw={"value": 20}, description="Number of samples to use for the initial reference of the Imu / TF tree")
+    imu_filter = SubmitField('Update')  # Submit Button
+

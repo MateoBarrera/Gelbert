@@ -1,7 +1,7 @@
 # Parameters
-KP: '5.1'              # attractive potential gain
+KP: '5.0'              # attractive potential gain
 ETA: '100.0'             # repulsive potential gain
-AREA_WIDTH: '4'      # potential area width [m]
+AREA_WIDTH: '2'      # potential area width [m]
 
 # the number of previous positions used to check oscillations
 OSCILLATIONS_DETECTION_LENGTH: '3'

@@ -29,7 +29,6 @@ class WriteYaml:
         print("INCLUYE PARENTS")
         for parent in parents:
           data_aux = data_file['/**']['ros__parameters'][parent]
-
           print("######################################")
           print(file_name_path)
           print(data_aux)
