@@ -27,10 +27,12 @@ function sendDataToBackendAjax(event, status) {
 					data['info'], 
 					"success");
 				if (status==='Start'){
-					document.getElementById("status_system").value = 'Running'
+					document.getElementById("status_system").value = 'Running'										
+					enableButton()
 				}
-				else{
-					document.getElementById("status_system").value = "Stopped"
+				else{			
+					document.getElementById("status_system").value = "Stopped"					
+					enableButton()		
 				}
 			}else{
 				Swal.fire({
@@ -58,4 +60,19 @@ function setFormActive(name_form){
 	console.log(name_form)
 
 	document.cookie = "form_active="+name_form+"; Secure; SameSite=Strict"
-}
+};
+
+function enableButton(){
+	let status_system = document.getElementById("status_system").value;
+	if (status_system === "Running") {
+		var btn = document.getElementById("start")
+		btn.disabled = true
+		var btn = document.getElementById("stop")
+		btn.disabled = false
+	} else {
+		var btn = document.getElementById("stop")
+		btn.disabled = true
+		var btn = document.getElementById("start")
+		btn.disabled = false
+	}
+};

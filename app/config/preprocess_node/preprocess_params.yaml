@@ -13,7 +13,7 @@
       right_camera_info_topic: /zedm/zed_node/right/camera_info
 
     imu_filter:
-      max_angle: 45                                      # In degrees. The maximum angle difference / head inclination before the filter of images
+      max_angle: 46                                      # In degrees. The maximum angle difference / head inclination before the filter of images
       num_samples: 20                                            # The number of samples to use for the initial reference of the Imu / TF tree
 
     blur:
