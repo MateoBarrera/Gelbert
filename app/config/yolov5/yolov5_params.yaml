@@ -4,15 +4,15 @@
 
 
 /**:
-    ros__parameters:
+  ros__parameters:
 
-        general:
-            weights:                            'Yolov5_S_Freeze_subir4_pto_simpl_half.engine'               
-            data:                               'data.yaml'                             
-            confidence_threshold:               "0.25"                              
-            iou_threshold:                      "0.45"                              
-            maximum_detections:                 10
+    general:
+      weights: Yolov5_S_Freeze_subir4_pto_simpl_half.engine
+      data: data.yaml
+      confidence_threshold: '0.25'
+      iou_threshold: '0.45'
+      maximum_detections: 10
 
-            inference_size_:                   "416"               
+      inference_size_: '416'
 
-            input_image_topic:               '/zedm/zed_node/left/image_rect_color
+      input_image_topic: /zedm/zed_node/left/image_rect_color

@@ -27,15 +27,15 @@ def home():
     Returns:
         server response: Home-page for platform welcome
     """
-    if(app.system_status=='Start'):
-        system_status= 'Running'
-    else:
-        system_status = 'Stopped'
     context = {
         'module': 'home',
         'form_name': 'Welcome!',
-        'system_status': system_status,
+        'system_status': app.system_status,
     }
+
+    if request.method=='POST':
+        context['system_status'] = app.system_status
+
 
     return render_template('home.html', **context)
 
@@ -48,10 +48,17 @@ def system():
         context: Alert context to frontend modals
     """    
     system_request = request.form.to_dict()
-    status_system = system_request['system']
-    app.system_status = status_system
-    print("##Status_system --> "+status_system)  
-    return ({'result': True, 'info': 'Systems response to '+status_system+' command'})
+    user_exec = system_request['system']
+    if(user_exec == 'Start'):
+        app.system_status = 'Running'
+    else:
+        app.system_status = 'Stopped'
+
+
+    print("##Status_system --> "+user_exec) 
+
+
+    return ({'result': True, 'info': 'Systems response to '+user_exec+' command'})
 
 
 if __name__ == '__main__':
