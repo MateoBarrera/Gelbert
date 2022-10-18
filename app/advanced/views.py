@@ -40,13 +40,14 @@ def advance():
     }
 
     if request.method == 'POST':
-        form_active = request.cookies.get('form_active')
+        form_active = request.form.to_dict()['current_form']
         if planner_form.validate_on_submit() and form_active == 'planner_form':
             data = request.form.to_dict()
             file_name = 'config/local_planner/params.yaml'
             data = request.form.to_dict()
             del data['csrf_token']
             del data['submit']
+            del data['current_form']
             yaml = WriteYaml()
             success, msg = yaml.dict_to_yaml(file_name, data)
             context['success'] = success
@@ -58,6 +59,7 @@ def advance():
             data = request.form.to_dict()
             del data['csrf_token']
             del data['submit']
+            del data['current_form']
             yaml = WriteYaml()
             success, msg = yaml.dict_to_yaml(file_name, data, parents=parents)
             context['success'] = success
@@ -70,6 +72,7 @@ def advance():
             file_name = 'config/preprocess_node/preprocess_params.yaml'
             data = request.form.to_dict()
             del data['csrf_token']
+            del data['current_form']
             del data[parents[0]]
             yaml = WriteYaml()
             success, msg = yaml.dict_to_yaml(file_name, data, parents=parents)
@@ -83,6 +86,7 @@ def advance():
             file_name = 'config/isaac/isaac_params.yaml'
             data = request.form.to_dict()
             del data['csrf_token']
+            del data['current_form']
             del data[parents[0]]
             yaml = WriteYaml()
             success, msg = yaml.dict_to_yaml(file_name, data, parents=parents)
@@ -95,6 +99,7 @@ def advance():
             file_name = 'config/zed_wrapper/common.yaml'
             data = request.form.to_dict()
             del data['csrf_token']
+            del data['current_form']
             del data['submit']
             yaml = WriteYaml()
             success, msg = yaml.dict_to_yaml(file_name, data, parents=parents)

@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import StringField, SubmitField, BooleanField, DecimalField
+from wtforms.fields import StringField, SubmitField, BooleanField, DecimalField, HiddenField
 from wtforms.validators import DataRequired, EqualTo, InputRequired, Regexp, Length, Optional, Email
 
 class CommonForm(FlaskForm):
@@ -38,6 +38,7 @@ class PlannerForm(FlaskForm):
         'Oscillations detection length', validators=[Optional()], render_kw={"value": "3"}, description="# of prev positions to check oscillations.")   
     Maximun_distance = DecimalField(
         'Maximum distance', validators=[Optional()], render_kw={"value": "2.5"}, description="Distance in meters to search free space and calculate paths.")
+    current_form = HiddenField('current_form', render_kw={"value": "planner_form"})
     submit = SubmitField('Update')  # Submit Button
 
 class YoloForm(FlaskForm):
@@ -60,6 +61,8 @@ class YoloForm(FlaskForm):
         'Inference size', validators=[Optional()], render_kw={"value": "416"})
     input_image_topic = StringField(
         'Input image topic', validators=[Optional()], render_kw={"value": "/zedm/zed_node/left/image_rect_color"})
+    current_form = HiddenField('current_form', render_kw={
+                               "value": "yolo_form"})
     submit = SubmitField('Update')  # Submit Button
 
 class PreprocessForm_general(FlaskForm):
@@ -80,6 +83,8 @@ class PreprocessForm_general(FlaskForm):
         'right_image_topic', validators=[Optional()], render_kw={"value": "/zedm/zed_node/right/image_rect_color"},  description="ROS topic string.")
     right_camera_info_topic = StringField(
         'right_camera_info_topic', validators=[Optional()], render_kw={"value": "/zedm/zed_node/right/camera_info"},  description="ROS topic string.")
+    current_form = HiddenField('current_form', render_kw={
+                               "value": "preprocess_form"})
     general = SubmitField('Update')  # Submit Button
 
 class PreprocessForm_imu(FlaskForm):
@@ -92,6 +97,8 @@ class PreprocessForm_imu(FlaskForm):
         'Maximum angle', validators=[Optional()], render_kw={"value": 45}, description="The maximum angle difference / head inclination before the filter of images.")
     num_samples = DecimalField(
         'Number of samples',  validators=[Optional()], render_kw={"value": 20}, description="Number of samples to use for the initial reference of the Imu / TF tree.")
+    current_form = HiddenField('current_form', render_kw={
+                               "value": "preprocess_form"})
     imu_filter = SubmitField('Update')  # Submit Button
 
 class PreprocessForm_blur(FlaskForm):
@@ -104,6 +111,8 @@ class PreprocessForm_blur(FlaskForm):
         'Kernel size', validators=[Optional()], render_kw={"value": 3}, description="Ther kernel size of the Sobel operator used by the Laplacian.")
     minZero = DecimalField(
         'MinZero',  validators=[Optional()], render_kw={"value": 100}, description="The decision threshold between non blur and blur image.")
+    current_form = HiddenField('current_form', render_kw={
+                               "value": "preprocess_form"})
     blur = SubmitField('Update')  # Submit Button
 
 
@@ -121,6 +130,8 @@ class IsaacForm_general(FlaskForm):
         'right_image_topic', validators=[Optional()], render_kw={"value": "/gelbert/right/image_rect_color"},  description="ROS topic string.")
     right_camera_info_topic = StringField(
         'right_camera_info_topic', validators=[Optional()], render_kw={"value": "/zedm/zed_node/right/camera_info"},  description="ROS topic string.")
+    current_form = HiddenField('current_form', render_kw={
+                               "value": "isaac_form"})
     general = SubmitField('Update')  # Submit Button
 
 
@@ -134,6 +145,8 @@ class IsaacForm_disparity(FlaskForm):
         'Backends', validators=[Optional()], render_kw={"value": 'CUDA'}, description="The VPI backend to use, which is CUDA by default (options: 'CUDA', 'XAVIER', 'ORIN').")
     max_disparity = DecimalField(
         'Maximum disparity',  validators=[Optional()], render_kw={"value": 64}, description="The maximum value for disparity per pixel, which is 64 by default. With ORIN backend, this value must be 128 or 256.")
+    current_form = HiddenField('current_form', render_kw={
+                               "value": "isaac_form"})
     disparity = SubmitField('Update')  # Submit Button
 
 
@@ -145,6 +158,8 @@ class IsaacForm_pointclouds(FlaskForm):
     """
     use_color = BooleanField(
         'Use color', validators=[Optional()])
+    current_form = HiddenField('current_form', render_kw={
+                               "value": "isaac_form"})
     pointclouds = SubmitField('Update')
 
 
@@ -189,4 +204,6 @@ class ZedcommonForm(FlaskForm):
         'qos_reliability', validators=[Optional()], render_kw={"value": 1}, description="'1': RELIABLE - '2': BEST_EFFORT.")
     qos_durability = DecimalField(
         'qos_durability', validators=[Optional()], render_kw={"value": 2}, description="'1': TRANSIENT_LOCAL - '2': VOLATILE.")
+    current_form = HiddenField('current_form', render_kw={
+                               "value": "zedcommon_form"})
     submit = SubmitField('Update')  # Submit Button

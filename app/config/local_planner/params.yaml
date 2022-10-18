@@ -1,5 +1,5 @@
 # Parameters
-KP: '5.01'             # attractive potential gain
+KP: '5.0'              # attractive potential gain
 ETA: '100.0'             # repulsive potential gain
 AREA_WIDTH: '2'      # potential area width [m]
 

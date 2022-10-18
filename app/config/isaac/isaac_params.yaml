@@ -12,7 +12,7 @@
 
     disparity:
       backends: CUDA                                        # The VPI backend to use, which is CUDA by default (options: "CUDA", "XAVIER", "ORIN")
-      max_disparity: 65                                            # The maximum value for disparity per pixel, which is 64 by default. With ORIN backend, this value must be 128 or 256.
+      max_disparity: 64                                            # The maximum value for disparity per pixel, which is 64 by default. With ORIN backend, this value must be 128 or 256.
 
     pointclouds:
       use_color: true                                                             # Whether or not the output point cloud should have color.

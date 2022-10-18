@@ -6,6 +6,10 @@
     <div class="form-group">
       <div class="row align-items-center justify-content-center">
         {% if item.type == 'BooleanField' %}
+        {% elif item.type == 'HiddenField' %}
+        <div class="col-4">
+          {{item}}
+        </div>
         {% elif item.type == 'SubmitField' %}
         <div class="col-4 m-4 ps-4">
           <input class="btn me-2" id="reset" name="reset" type="reset" value="Reset">
